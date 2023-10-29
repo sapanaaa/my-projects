@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock Project</title>
+     <link rel="stylesheet" href="clock.css">
+</head>
+<body>
+    <div class="hero">
+        <div class="container">
+            <div class="clock">
+              <span id="hrs">00</span>
+              <span>:</span>
+              <span id="min">00</span>
+              <span>:</span>
+              <span id="sec">00</span>
+    
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        let hrs=document.getElementById("hrs")  //getting html element on js by id 
+        let min=document.getElementById("min")
+        let sec=document.getElementById("sec")
+       
+       
+        setInterval(()=>{
+            let currentTime = new Date(); //displaying real time date
+            hrs.innerHTML= (currentTime.getHours()<10?"0":"")+currentTime.getHours();  //updating hours from real time to hrs element of html 
+            //& applying if case for setting 2 digit hours ie if hrs<10 then concatinate hrs with a string value "0"
+            min.innerHTML= (currentTime.getMinutes()<10?"0":"")+currentTime.getMinutes();
+            sec.innerHTML= (currentTime.getSeconds()<10?"0":"")+currentTime.getSeconds();
+
+        },1000) //updating time in the interval of 1000ms=1sec
+     
+
+    </script>
+</body>
+</html>
